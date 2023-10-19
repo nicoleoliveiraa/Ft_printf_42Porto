@@ -6,7 +6,7 @@
 /*   By: nsouza-o <nsouza-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 13:29:11 by nsouza-o          #+#    #+#             */
-/*   Updated: 2023/10/19 18:37:52 by nsouza-o         ###   ########.fr       */
+/*   Updated: 2023/10/19 19:35:43 by nsouza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,7 @@ void	ft_printchar(int i, int *c);
 void    ft_printpvoid(size_t num, int *c);
 void	ft_printstr(char *str, int *c);
 void	ft_printnum(int num, int *c);
+void	ft_printuns(unsigned int num, int *c);
+void	ft_printhexa(unsigned int num, const char *type, int *c);
 
 #endif
