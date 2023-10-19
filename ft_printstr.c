@@ -6,7 +6,7 @@
 /*   By: nsouza-o <nsouza-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 12:53:07 by nsouza-o          #+#    #+#             */
-/*   Updated: 2023/10/19 13:01:54 by nsouza-o         ###   ########.fr       */
+/*   Updated: 2023/10/19 18:16:59 by nsouza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@ void	ft_printstr(char *str, int *c)
 {
 	if (!str)
 	{
-		c += write(1, "Null", 5);
+		*c += write(1, "(null)", 6);
 		return ;
 	}
 	while (*str)
 	{
-		c += write(1, str, 1);
+		write(1, str, 1);
+		*c += 1;
 		str++;	
 	}
 }
