@@ -1,51 +1,65 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdarg.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nsouza-o <nsouza-o@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/19 11:55:24 by nsouza-o          #+#    #+#             */
+/*   Updated: 2023/10/19 15:59:40 by nsouza-o         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int	ft_types(char type, va_list arg)
+#include "ft_printf.h"
+
+void	ft_types(va_list arg, const char *type, int *c)
 {
-	int c;
+	if (*type == 'c')
+		ft_printchar(va_arg(arg, int), c);
+	if (*type == 's')
+		ft_printstr(va_arg(arg, char *), c);
+	/*if (*type == 'd')
+		ft_printdec(va_arg(arg, int), c);
+	if (*type == 'i' || type == 'd')
+		ft_printnum(va_arg(arg, int), c);
+	if (*type == 'u')
+		ft_printuns(va_arg(arg, unsigned int), c);
+	if (*type == 'x' || type == 'X')
+		ft_printhexa(va_arg(arg, int), c); */
+	if (*type == 'p')
+		ft_printpvoid(va_arg(arg, unsigned int), c);
+	/* if (*type == '%')
+		fr_printchar('%', c);  */
+	}
 
-	c = 0;
-	if (type == 'c')
-		c += ft_printchar(va_arg(arg, int));
-	if (type == 's')
-		c += ft_printstr(va_arg(arg, char *));
-	if (type == 'd')
-		c += ft_printdec(va_arg(arg, int));
-	if (type == 'i' || type == 'd')
-		c += ft_printnum(va_arg(arg, int));
-	if (type == 'u')
-		c += ft_printuns(va_arg(arg, unsigned int));
-	if (type == 'x' || type == 'X')
-		c += ft_printhexa(va_arg(arg, int));
-	if (type == 'p')
-		c += ft_printadress(va_arg(arg, int));
-	if (type == '%')
-		c += fr_printchar('%');
-	return (c);
-}
-
-int ft_printf(char *format, ...)
+int ft_printf(const char *format, ...)
 {
 	va_list arg;
 	int	c;
-	int i;
 
-	va_start(arg, format);
 	c = 0;
-	i = 0;
-	while (format[i])
+	va_start(arg, format);
+	while (*format)
 	{
-		if (format[i] != '%')
-			c += ft_printchar(va_arg(arg, int));
+		if (*format != '%')
+		{
+			c += write(1, format, 1);
+		}	
 		else
 		{
-			i++;
-			c += ft_types(format[i], arg);
+			format++;
+			ft_types(arg, format, &c);
 		}
-		i++;
+		format++;
 	}
+	va_end(arg);
 	return (c);
+}
+
+int main(void)
+{
+	char	*a = "ss";
+	ft_printf(" nicole %s\n", a);
+	printf(" nicole %s\n", a);
+	return (0);
 }
