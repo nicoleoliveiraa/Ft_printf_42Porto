@@ -6,7 +6,7 @@
 #    By: nsouza-o <nsouza-o@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/19 16:04:05 by nsouza-o          #+#    #+#              #
-#    Updated: 2023/10/19 19:22:59 by nsouza-o         ###   ########.fr        #
+#    Updated: 2023/11/19 23:40:34 by nsouza-o         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ RM = rm -f
 all: $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) -c $< -o $@
 
 $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)

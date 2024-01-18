@@ -6,7 +6,7 @@
 /*   By: nsouza-o <nsouza-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:55:24 by nsouza-o          #+#    #+#             */
-/*   Updated: 2023/10/19 19:51:07 by nsouza-o         ###   ########.fr       */
+/*   Updated: 2023/11/19 23:49:30 by nsouza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ static void	ft_types(va_list arg, const char *type, int *c)
 		ft_printpvoid(va_arg(arg, size_t), c);
 	if (*type == '%')
 		ft_printchar('%', c);
-	}
+}
 
-int ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
-	va_list arg;
-	int	c;
+	va_list	arg;
+	int		c;
 
 	c = 0;
 	va_start(arg, format);
@@ -41,8 +41,9 @@ int ft_printf(const char *format, ...)
 	{
 		if (*format != '%')
 		{
-			c += write(1, format, 1);
-		}	
+			c += 1; 
+			write(1, format, 1);
+		}
 		else
 		{
 			format++;
@@ -56,8 +57,9 @@ int ft_printf(const char *format, ...)
 
 /* int main(void)
 {
-	char	*a = "ss";
-	ft_printf(" nicole %s\n", a);
-	printf(" nicole %s\n", a);
+	//char	*a = "ss";
+	ft_printf("fd%fgf");
+	printf("\n nic%Ole");
+	printf("\n");
 	return (0);
 } */

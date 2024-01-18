@@ -6,15 +6,15 @@
 /*   By: nsouza-o <nsouza-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 12:29:43 by nsouza-o          #+#    #+#             */
-/*   Updated: 2023/10/19 18:22:26 by nsouza-o         ###   ########.fr       */
+/*   Updated: 2023/10/20 12:57:29 by nsouza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void ft_getadress(size_t num, int *c)
+static void	ft_getadress(size_t num, int *c)
 {
-	char    *hexa;
+	char	*hexa;
 
 	hexa = "0123456789abcdef";
 	if (num >= 16)

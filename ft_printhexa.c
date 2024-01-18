@@ -6,7 +6,7 @@
 /*   By: nsouza-o <nsouza-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 19:09:01 by nsouza-o          #+#    #+#             */
-/*   Updated: 2023/10/19 19:53:01 by nsouza-o         ###   ########.fr       */
+/*   Updated: 2023/10/20 12:59:17 by nsouza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	ft_getadresslw(unsigned int num, int *c)
 {
-	char    *hexa;
+	char	*hexa;
 
 	hexa = "0123456789abcdef";
 	if (num >= 16)
@@ -28,7 +28,7 @@ static void	ft_getadresslw(unsigned int num, int *c)
 
 static void	ft_getadressup(unsigned int num, int *c)
 {
-	char    *hexa;
+	char	*hexa;
 
 	hexa = "0123456789ABCDEF";
 	if (num >= 16)
@@ -42,18 +42,18 @@ static void	ft_getadressup(unsigned int num, int *c)
 
 void	ft_printhexa(unsigned int num, const char *type, int *c)
 {
-	if(num == 0)
+	if (num == 0)
 	{
 		write(1, "0", 1);
 		*c += 1;
 		return ;
 	}
-	if(*type == 'X')
+	if (*type == 'X')
 	{
-		ft_getadressup(num, c);	
+		ft_getadressup(num, c);
 		return ;
 	}
-	if(*type == 'x')
+	if (*type == 'x')
 	{
 		ft_getadresslw(num, c);
 		return ;
